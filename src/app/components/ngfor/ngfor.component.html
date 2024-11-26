@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let cityName of cityList"> {{cityName}}</li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <div *ngFor="let city of  cityList">
+            {{city}}
+        </div>
+    </div>
+    <div class="col-3">
+        <label *ngFor="let roll of rollNoList"> {{roll}} , </label>
+    </div>
+    <div class="col-3">
+        <select >
+            <option *ngFor="let city of cityList"> {{city}}</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <select>
+            <option *ngFor="let studnet of studentList">  {{studnet.name}}</option>
+        </select>
+    </div>
+    <div class="col-8">
+        <button class="btn btn-success mx-2" *ngFor="let stud of studentList"> 
+            {{stud.name}} - {{stud.studId}}
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Student Id</th>
+                    <th>Name</th>
+                    <th>City</th> 
+                    <th>Contact No</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let stud of studentList;let srno = index">
+                    <td> {{srno +1}} </td> 
+                    <td> {{stud.studId}}</td> 
+                    <td> {{stud.name}}</td> 
+                    <td> {{stud.city}}</td> 
+                    <td> {{stud.mobile}}</td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 pt-2" *ngFor="let student of studentList">
+        <div class="card" >
+            <div class="card-body">
+              <h4 class="card-title">{{student.name}}</h4>
+              <p class="card-text">{{student.studId}}</p>
+              <a href="#" class="card-link">{{student.city}}</a>
+              <a href="#" class="card-link">{{student.mobile}}</a>
+            </div>
+          </div>
+    </div>
+</div>

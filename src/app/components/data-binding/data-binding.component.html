@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-6 p-4 bg-success">
+        One Way Data Binding
+    </div>
+    <div class="col-6 p-4 bg-danger"> 
+        Two Way Data Binding
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6  ">
+        <div class="row">
+            <div class="col-6 bg-secondary p-4">
+                from .ts to .html <br>
+                inteplocation && property Binding
+            </div>
+            <div class="col-6 bg-success p-4">
+                from .html to .ts
+                <br>
+                Event Binding
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        {{firstName}}
+    </div>
+    <div class="col-2">
+        <p>{{lastName}}</p>
+    </div>
+    <div class="col-3">
+        <h3>{{firstName}}</h3>
+    </div>
+    <div class="col-2">
+        {{middleName}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <input type="text" value="{{firstName}}" />
+    </div>
+    <div class="col-3">
+        <input type="text" [minLength]="minLength" [value]="firstName" >
+    </div>
+    <div class="col-3">
+        <input [type]="inputType">
+    </div>
+    <div class="col-3">
+        <p [class]="paraClassName">This is sample</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 bg-danger">
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <button class="btn btn-success" (click)="showAlert()">Show Alert</button>
+    </div>
+    <div class="col-2">
+        <button class="btn btn-success" (click)="showMessage('Btn 1')">btn 1</button>
+    </div>
+    <div class="col-2">
+        <button class="btn btn-success" (click)="showMessage('Btn 2')">btn 2</button>
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+            <option value=""></option>
+            <option value="India">India</option>
+            <option value="Pakistam">Pakistam</option>
+            <option value="USA">America</option>
+        </select>
+        --{{selectedCountry}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 p-5 bg-danger" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeft()">
+        Div 1
+    </div>
+</div>

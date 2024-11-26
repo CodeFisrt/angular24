@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-3">
+        <div class="p-3" [ngStyle]="{'background-color': div1BgColor}" >
+            Div1 
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3" [ngStyle]="{'background-color':isChecked == true ? 'green':'red'}">
+            Div2 
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3" [ngStyle]="{'background-color':backColor,'width':width,'height':height,'border-radius':radius}">
+            Div 3
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3" [ngStyle]="myCss">
+            Div 4
+        </div>
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-3">
+        <button class="btn btn-danger" (click)="addDiv1Color('red')"> Add Red</button>
+        <button class="btn btn-success"  (click)="addDiv1Color('green')"> Add Green</button>
+    </div>
+    <div class="col-3 text-center">
+        <input type="checkbox" [(ngModel)]="isChecked" />
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="width" placeholder="Width"/>
+        <input type="text" [(ngModel)]="height" placeholder="height"/>
+        <input type="text" [(ngModel)]="backColor" placeholder="back Color"/>
+        <input type="text" [(ngModel)]="radius" placeholder="radious"/>
+    </div>
+    <div class="col-3">
+        <button (click)="chnageColor()">Chnage Color</button>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-3">
+        <div class="p-3" [ngClass]="divBgColor">
+            Div 1
+        </div>
+    </div>
+    <div class="col-3">
+         <div class="p-3" [ngClass]="isChecked == true ? 'bg-primary' : 'bg-warning'">
+            Div 2 - {{isChecked}}
+         </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3" [ngClass]="div3ClasName">
+            div 3
+        </div>
+    </div>
+    <div class="col-3">
+        <div [ngClass]="div4Class">
+            Div 4
+        </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+         <button class="btn btn-success" (click)="addDiv1BgColor('bg-success')">Add Green </button>
+         <button class="btn btn-danger"  (click)="addDiv1BgColor('bg-danger')">Add Red </button>
+    </div>
+    <div class="col-3">
+        <input type="checkbox"  [(ngModel)]="isChecked">
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="div3ClasName" placeholder="Class Name"> 
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success " (click)="toggleDiv4()">Toggle Div 4</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of studentList;let sr=index"   >
+                    <td > {{sr+1}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.city}}</td>
+                    <td [ngClass]="student.isActive  == true ? 'bg-success' : 'bg-danger'">
+                        <span *ngIf="student.isActive == true"> Active</span>
+                        <span  *ngIf="student.isActive == false">De-Active</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

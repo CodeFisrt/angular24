@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-3">
+        <div class="bg-danger p-4" *ngIf="isDiv1Visiable">
+            Div 1
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="bg-primary p-4" *ngIf="num1 === num2">
+            Div 2
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="bg-secondary p-4" *ngIf="isDiv3Visiable">
+            div 3
+        </div>
+    </div>
+</div>
+
+<div class="row p-3">
+    <div class="col-3">
+       <button class="btn btn-danger" (click)="onDiv1Hide()">Hide</button>
+       <button class="btn btn-primary" (click)="onShowDiv1()">Show</button>
+    </div>
+    <div class="col-3">
+         <input type="text" [(ngModel)]="num1" placeholder="Num 1"/>
+         <input type="text" [(ngModel)]="num2" placeholder="Num 2"/>
+    </div>
+    <div class="col-3">
+       <button class="btn btn-success" (click)="toggleDiv3()">Toggle</button>
+    </div>
+</div>
