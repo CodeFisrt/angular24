@@ -11,6 +11,13 @@ export class AdminComponent {
 
   firstName: string = "Chetan";
 
+  studentObject: any = {
+    name:"Chetan",
+    city:"Pune",
+    state: "Mah",
+    mobileNo:'9988998877'
+  }
+
   showAlert() {
     alert("Welcome")
   }

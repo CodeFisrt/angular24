@@ -12,6 +12,7 @@ import { NgifComponent } from './components/ngif/ngif.component';
 import { NgforComponent } from './components/ngfor/ngfor.component';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
+import { HeaderComponent } from './components/header/header.component';
  
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NgStyleComponent } from './components/ng-style/ng-style.component';
     NgifComponent,
     NgforComponent,
     NgClassComponent,
-    NgStyleComponent
+    NgStyleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

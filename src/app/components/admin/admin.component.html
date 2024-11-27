@@ -7,4 +7,25 @@
 
 <input type="text"  [(ngModel)]="firstName">
 
-<p (click)="showAlert()">Click Me</p>
+<p (click)="showAlert()" >Click Me</p>
+{{studentObject.name}} -- {{studentObject.city}}
+<div class="row">
+    <div class="col-3">
+        <label for="">Name</label>
+        <input type="text" [(ngModel)]="studentObject.name" name="" id="">
+    </div>
+    <div class="col-3">
+        <label for="">City</label>
+        <input type="text" [(ngModel)]="studentObject.city" name="" id="">
+    </div>
+</div>
+<div class="row"> 
+    <div class="col-3">
+        <label for="">State</label>
+        <input type="text" [(ngModel)]="studentObject.state" name="" id="">
+    </div>
+    <div class="col-3">
+        <label for="">Mobile No</label>
+        <input type="text" [(ngModel)]="studentObject.mobileNo" name="" id="">
+    </div>
+</div>
