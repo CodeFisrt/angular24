@@ -16,7 +16,7 @@ export class AdminComponent {
     city:"Pune",
     state: "Mah",
     mobileNo:'9988998877'
-  }
+  };
 
   showAlert() {
     alert("Welcome")

@@ -7,6 +7,7 @@ import { NgforComponent } from './components/ngfor/ngfor.component';
 import { NgifComponent } from './components/ngif/ngif.component';
 import { VariablesComponent } from './components/variables/variables.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ControlFlowComponent } from './components/control-flow/control-flow.component';
 
 const routes: Routes = [
   //default Route
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path:'variable',
     component:VariablesComponent
+  },
+  {
+    path:'control-flow',
+    component:ControlFlowComponent
   }
 ];
 

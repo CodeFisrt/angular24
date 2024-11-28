@@ -13,6 +13,7 @@ import { NgforComponent } from './components/ngfor/ngfor.component';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ControlFlowComponent } from './components/control-flow/control-flow.component';
  
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HeaderComponent } from './components/header/header.component';
     NgforComponent,
     NgClassComponent,
     NgStyleComponent,
-    HeaderComponent
+    HeaderComponent,
+    ControlFlowComponent
   ],
   imports: [
     BrowserModule,
