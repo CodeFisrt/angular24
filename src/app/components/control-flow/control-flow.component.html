@@ -43,6 +43,17 @@
             }
         }
     </div>
+    <div class="col-3 bg-danger p-4">
+      <div [ngSwitch]="dayName">
+        <p *ngSwitchCase="'mon'"> Monday</p>
+        <p *ngSwitchCase="'tue'"> Tuesday</p>
+        <p *ngSwitchCase="'wed'"> Wednesday</p>
+        <p *ngSwitchCase="'thu'"> Thursday</p>
+
+        <p *ngSwitchDefault>Wrong Entry</p>
+      </div>
+
+    </div>
 </div>
 
 <div class="row pt-3">
@@ -57,4 +68,50 @@
      <div class="col-3">
         <input type="text" [(ngModel)]="dayName" maxlength="3" class="form-control" placeholder="Enter Starting Char of Day">
      </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <select name="" id="">
+            @for (item of cityList; track $index) {
+                <option  > {{item}}</option>
+            } 
+        </select>
+    </div>
+    <div class="col-3">
+         @for (item of cityList; track $index) {
+            <button class="btn btn-success mx-2" > {{item}}</button>
+         }
+    </div>
+    <div class="col-6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Mobile</th>
+                    <th>Active Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of studentList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.city}}</td>
+                        <td>{{item.mobile}}</td>
+                        <td>
+                            <!-- {{item.isActive == true ? 'Active':'De-Active' }} -->
+                            @if(item.isActive == true) {
+                                <p class="text-success">Active</p>
+                            } @else {
+                                <p class="text-danger">De-Active</p>
+                            } 
+                        </td> 
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
