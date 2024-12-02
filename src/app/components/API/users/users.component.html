@@ -1,0 +1,34 @@
+<p>users works!</p>
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>userName</th>
+                    <th>website</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of userList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.username}}</td>
+                        <td>{{item.website}}</td>
+                        <td>{{item.phone}}</td>
+                        <td>
+                            {{item.address.city}} , 
+                            {{item.address.suite}}
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

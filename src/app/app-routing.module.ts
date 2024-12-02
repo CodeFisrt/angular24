@@ -8,6 +8,7 @@ import { NgifComponent } from './components/ngif/ngif.component';
 import { VariablesComponent } from './components/variables/variables.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
+import { UsersComponent } from './components/API/users/users.component';
 
 const routes: Routes = [
   //default Route
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path:'control-flow',
     component:ControlFlowComponent
+  },
+  {
+    path:'users',
+    component:UsersComponent
   }
 ];
 

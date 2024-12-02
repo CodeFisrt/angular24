@@ -14,7 +14,9 @@ import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
- 
+
+import { provideHttpClient } from '@angular/common/http';
+import { UsersComponent } from './components/API/users/users.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,15 @@ import { ControlFlowComponent } from './components/control-flow/control-flow.com
     NgClassComponent,
     NgStyleComponent,
     HeaderComponent,
-    ControlFlowComponent
+    ControlFlowComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule 
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
