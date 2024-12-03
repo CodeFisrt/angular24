@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header bg-primary">
+                Car List
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Year </th>
+                            <th>Color</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of carList; track $index) {
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{item.brand}}</td>
+                                <td>{{item.model}}</td>
+                                <td>{{item.year}}</td>
+                                <td>{{item.color}}</td> 
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+         <div class="card">
+            <div class="card-header bg-primary">
+                New Car Form
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 mt-2">
+                      <label>Reg No</label>
+                      <input type="text" [(ngModel)]="newCarObj.regNo" class="form-control" placeholder="Enter car image url" />
+                    </div>
+                    <div class="col-6 mt-2">
+                      <label>Brand</label>
+                      <input type="text" [(ngModel)]="newCarObj.brand" class="form-control" placeholder="Enter brand name" />
+                    </div>
+                    <div class="col-6 mt-2">
+                      <label>Model</label>
+                      <input type="text" [(ngModel)]="newCarObj.model" class="form-control" placeholder="Enter model name" />
+                    </div>
+                    <div class="col-6 mt-2">
+                      <label>Year</label>
+                      <input type="text" [(ngModel)]="newCarObj.year" class="form-control" placeholder="Enter year" />
+                    </div>
+                    <div class="col-6 mt-2">
+                      <label>Color</label>
+                      <input type="text" [(ngModel)]="newCarObj.color" class="form-control" placeholder="Enter color" />
+                    </div>
+                    <div class="col-6 mt-2">
+                      <label>Daily Rate</label>
+                      <input type="text" [(ngModel)]="newCarObj.dailyRate" class="form-control" placeholder="Enter daily rate" />
+                    </div>
+                    <div class="col-6 mt-2">
+                      <label>Car Image URL</label>
+                      <input type="text" [(ngModel)]="newCarObj.carImage" class="form-control" placeholder="Enter car image url" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 mt-2 text-center">
+                      <button class="btn btn-sm btn-secondary m-1">Reset</button>
+                      <button class="btn btn-sm btn-success" (click)="onSaveCar()">Save Car</button>
+                    </div>
+                  </div>
+            </div>
+         </div>
+    </div>
+</div>

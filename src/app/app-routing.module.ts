@@ -9,6 +9,7 @@ import { VariablesComponent } from './components/variables/variables.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
 import { UsersComponent } from './components/API/users/users.component';
+import { CarsComponent } from './components/API/cars/cars.component';
 
 const routes: Routes = [
   //default Route
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path:'users',
     component:UsersComponent
+  },
+  {
+    path:'cars',
+    component:CarsComponent
   }
 ];
 

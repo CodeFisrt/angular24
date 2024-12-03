@@ -1,6 +1,6 @@
-<p>users works!</p>
+<p>{{firstName}}</p>
 <div class="row">
-    <div class="col-5">
+    <div class="col-7">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -26,6 +26,30 @@
                             {{item.address.city}} , 
                             {{item.address.suite}}
                         </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Year </th>
+                    <th>Color</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of carList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.brand}}</td>
+                        <td>{{item.model}}</td>
+                        <td>{{item.year}}</td>
+                        <td>{{item.color}}</td> 
                     </tr>
                 }
             </tbody>

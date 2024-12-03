@@ -17,6 +17,7 @@ import { ControlFlowComponent } from './components/control-flow/control-flow.com
 
 import { provideHttpClient } from '@angular/common/http';
 import { UsersComponent } from './components/API/users/users.component';
+import { CarsComponent } from './components/API/cars/cars.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UsersComponent } from './components/API/users/users.component';
     NgStyleComponent,
     HeaderComponent,
     ControlFlowComponent,
-    UsersComponent
+    UsersComponent,
+    CarsComponent
   ],
   imports: [
     BrowserModule,
