@@ -19,6 +19,7 @@ export class CarsComponent {
     "carImage": "",
     "regNo": ""
   }
+  apiCommonUrl: string = "https://freeapi.gerasim.in/api/CarRentalApp/";
 
   constructor(private http:HttpClient) {
     this.getCarList();
@@ -26,7 +27,7 @@ export class CarsComponent {
  
   onSaveCar() {
     debugger;
-    this.http.post("https://freeapi.gerasim.in/api/CarRentalApp/CreateNewCar",this.newCarObj).subscribe((res:any)=>{
+    this.http.post(this.apiCommonUrl+"CreateNewCar",this.newCarObj).subscribe((res:any)=>{
       debugger;
       if(res.result == true) {
         alert("Car Created Success");
@@ -36,11 +37,41 @@ export class CarsComponent {
       }
     })
   }
+  onUpdateCar() { 
+    this.http.put(this.apiCommonUrl + "UpdateCar",this.newCarObj).subscribe((res:any)=>{
+      if(res.result) {
+        alert("Car Updated Success");
+        this.getCarList();
+      } else {
+        alert(res.message)
+      }
+    })
+  }
+
+  onDelete(carId: number) {
+    debugger;
+    const isDelete = confirm("Are you Sure Want to Delete ??");
+    if(isDelete == true) {
+      this.http.delete(this.apiCommonUrl + "DeleteCarbyCarId?carid=" + carId).subscribe((res:any)=>{
+        if(res.result) {
+          alert("Car Deleted Success");
+          this.getCarList();
+        } else {
+          alert(res.message)
+        }
+      })
+    }
+   
+  }
 
   getCarList() {
-    this.http.get("https://freeapi.gerasim.in/api/CarRentalApp/GetCars").subscribe((res:any)=>{
+    this.http.get(this.apiCommonUrl+"GetCars").subscribe((res:any)=>{
       this.carList = res.data;
     })
+  }
+
+  onEdit(carData: any) {
+    this.newCarObj =  carData;
   }
 
 
