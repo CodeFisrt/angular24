@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { CarService } from '../../../services/car.service';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +16,7 @@ public firstName: string = "Chetan";
 
 
 
-constructor(private http: HttpClient) {
+constructor(private http: HttpClient, private carSrv: CarService) {
   debugger;
   this.getUsers();
   this.getCarList();
@@ -30,7 +31,7 @@ getUsers() {
 }
 
 getCarList() {
-  this.http.get("https://freeapi.gerasim.in/api/CarRentalApp/GetCars").subscribe((response:any)=>{
+  this.carSrv.getAllCars().subscribe((response:any)=>{
     debugger;
     this.carList = response.data;
   })

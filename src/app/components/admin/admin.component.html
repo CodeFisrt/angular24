@@ -1,4 +1,24 @@
-<p>admin works!</p>
+ 
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="num1" placeholder="Enter Num 1">
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="num2"  placeholder="Enter Num 2">
+    </div>
+    <div class="col-3">
+        <input type="button" (click)="onAdd()" value="Add" class="btn btn-success">
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="result"  placeholder="Result">
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
 <strong>Admin Welcome </strong>
 
 <p>{{firstName}}</p>

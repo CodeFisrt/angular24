@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CarService } from '../../services/car.service';
 
 @Component({
   selector: 'app-admin',
@@ -17,7 +18,19 @@ export class AdminComponent {
     state: "Mah",
     mobileNo:'9988998877'
   };
+  num1: number = 0;
+  num2: number = 0;
 
+  result: number = 0;
+
+  constructor(private carsrv:CarService){
+
+  }
+
+  onAdd() {
+    debugger;
+   this.result =  this.carsrv.getAdditonOfTwoNo(this.num1, this.num2)
+  }
   showAlert() {
     alert("Welcome")
   }

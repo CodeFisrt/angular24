@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { CarService } from '../../../services/car.service';
 
 @Component({
   selector: 'app-cars',
@@ -21,21 +22,32 @@ export class CarsComponent {
   }
   apiCommonUrl: string = "https://freeapi.gerasim.in/api/CarRentalApp/";
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private carsrv:CarService) {
     this.getCarList();
+    const apiUrl =  this.carsrv.apiUrl;
+    debugger;
   }
  
   onSaveCar() {
     debugger;
-    this.http.post(this.apiCommonUrl+"CreateNewCar",this.newCarObj).subscribe((res:any)=>{
-      debugger;
-      if(res.result == true) {
-        alert("Car Created Success");
-        this.getCarList();
-      } else {
-        alert(res.message)
-      }
-    })
+    // this.http.post(this.apiCommonUrl+"CreateNewCar",this.newCarObj).subscribe((res:any)=>{
+    //   debugger;
+    //   if(res.result == true) {
+    //     alert("Car Created Success");
+    //     this.getCarList();
+    //   } else {
+    //     alert(res.message)
+    //   }
+    // })
+    this.carsrv.addNewCar(this.newCarObj).subscribe((res:any)=>{
+        debugger;
+        if(res.result == true) {
+          alert("Car Created Success");
+          this.getCarList();
+        } else {
+          alert(res.message)
+        }
+      })
   }
   onUpdateCar() { 
     this.http.put(this.apiCommonUrl + "UpdateCar",this.newCarObj).subscribe((res:any)=>{
@@ -52,7 +64,7 @@ export class CarsComponent {
     debugger;
     const isDelete = confirm("Are you Sure Want to Delete ??");
     if(isDelete == true) {
-      this.http.delete(this.apiCommonUrl + "DeleteCarbyCarId?carid=" + carId).subscribe((res:any)=>{
+      this.carsrv.onDeleteCar(carId).subscribe((res:any)=>{
         if(res.result) {
           alert("Car Deleted Success");
           this.getCarList();
@@ -65,7 +77,12 @@ export class CarsComponent {
   }
 
   getCarList() {
-    this.http.get(this.apiCommonUrl+"GetCars").subscribe((res:any)=>{
+    // this.http.get("https://freeapi.gerasim.in/api/CarRentalApp/GetCars").subscribe((res:any)=>{
+    //   this.carList = res.data;
+    // })
+    debugger;
+    this.carsrv.getAllCars().subscribe((res:any)=>{
+      debugger;
       this.carList = res.data;
     })
   }
