@@ -1,8 +1,50 @@
- 
-
-<div class="row">
+ <div class="row">
     <div class="col-3">
-        <input type="text" [(ngModel)]="num1" placeholder="Enter Num 1">
+        firstName => {{firstName}}
+        <br>
+        lower case => {{firstName | lowercase}}
+        <br>
+        upper case => {{firstName | uppercase}}
+        <br>
+        title pipe => {{lastName | titlecase}}
+    </div>
+    <div class="col-4">
+        currentDate => {{currentDate}}
+        <br>
+        date pipe => {{currentDate | date}}
+        <br>
+        date dd-MM-yy => {{currentDate| date:'dd-MM-yy'}}
+        <br>
+        date dd-MMM-yy => {{currentDate| date:'dd-MMM-yy'}}
+        <br>
+        date dd-MMMM-yy => {{currentDate| date:'dd-MMMM-yy'}}
+        <br>
+        date dd/MMMM/yy => {{currentDate| date:'dd/MMMM/yy'}}
+        <br>
+        date dd-MMMM-yyyy => {{currentDate| date:'dd/MMMM/yyyy'}}
+        <br>
+        time hh:mm:ss => {{currentDate | date:'hh:mm:ss'}}
+    </div>
+    <div class="col-4">
+        obj => {{studentObject | json}}
+        <br>
+        arryu of obj => {{studentList| json}}
+    </div>
+ </div>
+
+ <div class="row">
+    <div class="col-4">
+        cityList => {{cityList}}
+        <br>
+        slice piep => {{cityList|slice:2}}
+        <br>
+        slice wuth startn n end {{cityList |slice:2:5}}
+    </div>
+ </div>
+
+<div class="row pt-5">
+    <div class="col-3">
+        <input type="date" [(ngModel)]="currentDate" placeholder="Enter Num 1">
     </div>
     <div class="col-3">
         <input type="text" [(ngModel)]="num2"  placeholder="Enter Num 2">
