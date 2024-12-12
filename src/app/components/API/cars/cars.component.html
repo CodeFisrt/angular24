@@ -3,6 +3,7 @@
         <div class="card">
             <div class="card-header bg-primary">
                 Car List
+                <img src="https://motopartz.gerasim.in/UploadedFiles/black.png" alt="">
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
@@ -40,35 +41,47 @@
             <div class="card-header bg-primary">
                 New Car Form
             </div>
-            <div class="card-body">
+            <form #form="ngForm">
+              <div class="card-body">
                 <div class="row">
                     <div class="col-6 mt-2">
-                      <label>Reg No</label>
-                      <input type="text" [(ngModel)]="newCarObj.regNo" class="form-control" placeholder="Enter car image url" />
+                      <label>Reg No <span class="text-danger">*</span></label>
+                      <!-- Tenplate refrence variable or # property -->
+                      <input type="text" #regNo="ngModel" required minlength="8" name="regNo" [(ngModel)]="newCarObj.regNo" class="form-control" placeholder="Enter car image url" />
+                      <div class="text-danger" *ngIf="regNo.touched || regNo.dirty">
+                      <!-- --{{regNo.errors | json}}   --{{regNo.errors?.['required']}} -->
+                        <span *ngIf="regNo.errors?.['required']">This Is Required</span>
+                        <span *ngIf="regNo.errors?.['minlength']"> Min 8 Char Needed </span>
+                      </div>
                     </div>
                     <div class="col-6 mt-2">
                       <label>Brand</label>
-                      <input type="text" [(ngModel)]="newCarObj.brand" class="form-control" placeholder="Enter brand name" />
+                      <input type="text" [(ngModel)]="newCarObj.brand" name="brand" class="form-control" placeholder="Enter brand name" />
                     </div>
                     <div class="col-6 mt-2">
                       <label>Model</label>
-                      <input type="text" [(ngModel)]="newCarObj.model" class="form-control" placeholder="Enter model name" />
+                      <input type="text" [(ngModel)]="newCarObj.model" name="model" class="form-control" placeholder="Enter model name" />
                     </div>
                     <div class="col-6 mt-2">
                       <label>Year</label>
-                      <input type="text" [(ngModel)]="newCarObj.year" class="form-control" placeholder="Enter year" />
+                      <input type="text" #year="ngModel" required pattern="^[0-9]*$" minlength="4" maxlength="4" name="year" [(ngModel)]="newCarObj.year" class="form-control" placeholder="Enter year" />
+                      <div class="text-danger" *ngIf="year.touched  || regNo.dirty">
+                        <span *ngIf="year.errors?.['required']">This Is Required</span>
+                        <span *ngIf="year.errors?.['minlength']">Min Char 4 Required</span>
+                        <span *ngIf="year.errors?.['pattern']"> Only No Allowed</span>
+                      </div>
                     </div>
                     <div class="col-6 mt-2">
                       <label>Color</label>
-                      <input type="text" [(ngModel)]="newCarObj.color" class="form-control" placeholder="Enter color" />
+                      <input type="text" [(ngModel)]="newCarObj.color" name="color" class="form-control" placeholder="Enter color" />
                     </div>
                     <div class="col-6 mt-2">
                       <label>Daily Rate</label>
-                      <input type="text" [(ngModel)]="newCarObj.dailyRate" class="form-control" placeholder="Enter daily rate" />
+                      <input type="text" [(ngModel)]="newCarObj.dailyRate" name="dailyRate" class="form-control" placeholder="Enter daily rate" />
                     </div>
                     <div class="col-6 mt-2">
                       <label>Car Image URL</label>
-                      <input type="text" [(ngModel)]="newCarObj.carImage" class="form-control" placeholder="Enter car image url" />
+                      <input type="text" [(ngModel)]="newCarObj.carImage" name="carImage" class="form-control" placeholder="Enter car image url" />
                     </div>
                   </div>
                   <div class="row">
@@ -76,7 +89,8 @@
                       carId=> {{newCarObj.carId}}
                       <button class="btn btn-sm btn-secondary m-1">Reset</button>
                       @if(newCarObj.carId ==0) {
-                        <button class="btn btn-sm btn-success" (click)="onSaveCar()">Save Car</button>
+                        --{{form.valid}}
+                        <button class="btn btn-sm btn-success" [disabled]="!form.valid" (click)="onSaveCar()">Save Car</button>
                       } @else {
                         <button class="btn btn-sm btn-warning" (click)="onUpdateCar()">Update Car</button>
                       }
@@ -85,6 +99,8 @@
                     </div>
                   </div>
             </div>
+            </form>
+           
          </div>
     </div>
 </div>

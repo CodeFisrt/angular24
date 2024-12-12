@@ -10,6 +10,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
 import { UsersComponent } from './components/API/users/users.component';
 import { CarsComponent } from './components/API/cars/cars.component';
+import { CarReactiveComponent } from './components/API/car-reactive/car-reactive.component';
 
 const routes: Routes = [
   //default Route
@@ -57,6 +58,11 @@ const routes: Routes = [
   {
     path:'cars',
     component:CarsComponent
+  }
+  ,
+  {
+    path:'car-reactive',
+    component:CarReactiveComponent
   }
 ];
 

@@ -7,7 +7,7 @@ import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { VariablesComponent } from './components/variables/variables.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgifComponent } from './components/ngif/ngif.component';
 import { NgforComponent } from './components/ngfor/ngfor.component';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
@@ -17,7 +17,8 @@ import { ControlFlowComponent } from './components/control-flow/control-flow.com
 
 import { provideHttpClient } from '@angular/common/http';
 import { UsersComponent } from './components/API/users/users.component';
-import { CarsComponent } from './components/API/cars/cars.component'; 
+import { CarsComponent } from './components/API/cars/cars.component';
+import { CarReactiveComponent } from './components/API/car-reactive/car-reactive.component'; 
 
 @NgModule({
   declarations: [
@@ -33,12 +34,14 @@ import { CarsComponent } from './components/API/cars/cars.component';
     HeaderComponent,
     ControlFlowComponent,
     UsersComponent,
-    CarsComponent 
+    CarsComponent,
+    CarReactiveComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule ,
+    ReactiveFormsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

@@ -10,11 +10,12 @@ import { CarService } from '../../../services/car.service';
 export class CarsComponent {
 
   carList: any [] = [];
+
   newCarObj: any = {
     "carId": 0,
     "brand": "",
     "model": "",
-    "year": 0,
+    "year": "",
     "color": "",
     "dailyRate": 0,
     "carImage": "",
@@ -26,6 +27,7 @@ export class CarsComponent {
     this.getCarList();
     const apiUrl =  this.carsrv.apiUrl;
     debugger;
+    
   }
  
   onSaveCar() {

@@ -1,0 +1,53 @@
+<div class="col-5">
+    <div class="card">
+        <div class="card-header bg-primary">
+            New Car Form
+        </div>
+        <form  [formGroup]="carForm">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 mt-2">
+                        <label>Reg No <span class="text-danger">*</span></label> 
+                        <input type="text" formControlName="regNo" class="form-control" placeholder="Enter car image url" /> 
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Brand</label>
+                        <input type="text" formControlName="brand"  class="form-control" placeholder="Enter brand name" />
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Model</label>
+                        <input type="text" formControlName="model"  class="form-control" placeholder="Enter model name" />
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Year</label>
+                        <input type="text" formControlName="year"  class="form-control" placeholder="Enter year" />
+
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Color</label>
+                        <input type="text"   formControlName="color"  class="form-control" placeholder="Enter color" />
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Daily Rate</label>
+                        <input type="text" formControlName="dailyRate"  class="form-control" placeholder="Enter daily rate" />
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Car Image URL</label>
+                        <input type="text"  formControlName="carImage"  class="form-control" placeholder="Enter car image url" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-2 text-center">
+
+                        <button class="btn btn-sm btn-secondary m-1">Reset</button>
+
+                        <button class="btn btn-sm btn-success" (click)="onSaveCar()">Save Car</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
