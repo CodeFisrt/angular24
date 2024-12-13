@@ -20,7 +20,9 @@ export class CarsComponent {
     "dailyRate": 0,
     "carImage": "",
     "regNo": ""
-  }
+  };
+  isLoader: boolean = false;
+  isApiCallInProgress: boolean = false;
   apiCommonUrl: string = "https://freeapi.gerasim.in/api/CarRentalApp/";
 
   constructor(private http:HttpClient, private carsrv:CarService) {
@@ -41,15 +43,20 @@ export class CarsComponent {
     //     alert(res.message)
     //   }
     // })
-    this.carsrv.addNewCar(this.newCarObj).subscribe((res:any)=>{
-        debugger;
-        if(res.result == true) {
-          alert("Car Created Success");
-          this.getCarList();
-        } else {
-          alert(res.message)
-        }
-      })
+    if(this.isApiCallInProgress == false) {
+      this.isApiCallInProgress = true;
+      this.carsrv.addNewCar(this.newCarObj).subscribe((res:any)=>{
+          debugger;
+          if(res.result == true) {
+            alert("Car Created Success");
+            this.getCarList();
+          } else {
+            alert(res.message)
+          }
+          this.isApiCallInProgress = false;
+        })
+    }
+  
   }
   onUpdateCar() { 
     this.http.put(this.apiCommonUrl + "UpdateCar",this.newCarObj).subscribe((res:any)=>{
@@ -83,9 +90,11 @@ export class CarsComponent {
     //   this.carList = res.data;
     // })
     debugger;
+    this.isLoader = true;
     this.carsrv.getAllCars().subscribe((res:any)=>{
       debugger;
       this.carList = res.data;
+      this.isLoader = false;
     })
   }
 
