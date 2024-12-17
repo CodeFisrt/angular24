@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CarService } from '../../../services/car.service';
+import { CAR, ICAR } from '../../../Model/car';
 
 @Component({
   selector: 'app-cars',
@@ -9,18 +10,10 @@ import { CarService } from '../../../services/car.service';
 })
 export class CarsComponent {
 
-  carList: any [] = [];
+  carList: CAR [] = [];
 
-  newCarObj: any = {
-    "carId": 0,
-    "brand": "",
-    "model": "",
-    "year": "",
-    "color": "",
-    "dailyRate": 0,
-    "carImage": "",
-    "regNo": ""
-  };
+  newCarObj: CAR  = new CAR();
+
   isLoader: boolean = false;
   isApiCallInProgress: boolean = false;
   apiCommonUrl: string = "https://freeapi.gerasim.in/api/CarRentalApp/";
@@ -29,6 +22,7 @@ export class CarsComponent {
     this.getCarList();
     const apiUrl =  this.carsrv.apiUrl;
     debugger;
+    const value = this.newCarObj;
     
   }
  
@@ -50,6 +44,7 @@ export class CarsComponent {
           if(res.result == true) {
             alert("Car Created Success");
             this.getCarList();
+            this.newCarObj =  new CAR();
           } else {
             alert(res.message)
           }

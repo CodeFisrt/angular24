@@ -11,59 +11,72 @@ import { ControlFlowComponent } from './components/control-flow/control-flow.com
 import { UsersComponent } from './components/API/users/users.component';
 import { CarsComponent } from './components/API/cars/cars.component';
 import { CarReactiveComponent } from './components/API/car-reactive/car-reactive.component';
+import { LoginComponent } from './components/login/login.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 const routes: Routes = [
   //default Route
   {
     path:'',
-    redirectTo:"ng-class",
+    redirectTo:"login",
     pathMatch:'full'
   },
   {
-    path: 'dataBinding',
-    component: DataBindingComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'admin',
-    component: AdminComponent
-  },
-  {
-    path:'ng-class',
-    component:NgClassComponent
-  },
-  {
-    path:'ngstyle',
-    component: NgStyleComponent
-  },
-  {
-    path:'ngfor',
-    component: NgforComponent
-  },
-  {
-    path:'ngif',
-    component: NgifComponent
-  },
-  {
-    path:'variable',
-    component:VariablesComponent
-  },
-  {
-    path:'control-flow',
-    component:ControlFlowComponent
-  },
-  {
-    path:'users',
-    component:UsersComponent
-  },
-  {
-    path:'cars',
-    component:CarsComponent
+    path:'',
+    component:LayoutComponent,
+    children:[
+      {
+        path: 'dataBinding',
+        component: DataBindingComponent
+      },
+      {
+        path: 'admin',
+        component: AdminComponent
+      },
+      {
+        path:'ng-class',
+        component:NgClassComponent
+      },
+      {
+        path:'ngstyle',
+        component: NgStyleComponent
+      },
+      {
+        path:'ngfor',
+        component: NgforComponent
+      },
+      {
+        path:'ngif',
+        component: NgifComponent
+      },
+      {
+        path:'variable',
+        component:VariablesComponent
+      },
+      {
+        path:'control-flow',
+        component:ControlFlowComponent
+      },
+      {
+        path:'users',
+        component:UsersComponent
+      },
+      {
+        path:'cars',
+        component:CarsComponent
+      }
+      ,
+      {
+        path:'car-reactive',
+        component:CarReactiveComponent
+      }
+    ]
   }
-  ,
-  {
-    path:'car-reactive',
-    component:CarReactiveComponent
-  }
+  
 ];
 
 @NgModule({

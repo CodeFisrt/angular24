@@ -18,7 +18,9 @@ import { ControlFlowComponent } from './components/control-flow/control-flow.com
 import { provideHttpClient } from '@angular/common/http';
 import { UsersComponent } from './components/API/users/users.component';
 import { CarsComponent } from './components/API/cars/cars.component';
-import { CarReactiveComponent } from './components/API/car-reactive/car-reactive.component'; 
+import { CarReactiveComponent } from './components/API/car-reactive/car-reactive.component';
+import { LoginComponent } from './components/login/login.component';
+import { LayoutComponent } from './components/layout/layout.component'; 
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { CarReactiveComponent } from './components/API/car-reactive/car-reactive
     ControlFlowComponent,
     UsersComponent,
     CarsComponent,
-    CarReactiveComponent 
+    CarReactiveComponent,
+    LoginComponent,
+    LayoutComponent 
   ],
   imports: [
     BrowserModule,
